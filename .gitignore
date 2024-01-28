@@ -1,0 +1,8 @@
+# Ignore logs
+data/Config/CrashReportClient
+data/Crashes
+data/Logs
+data
+
+# keep PalworldSettings.ini
+!data/Config/LinuxServer/PalWorldSettings.ini
