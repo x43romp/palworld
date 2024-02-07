@@ -1,22 +1,27 @@
 version: '3.8'
 
-
 services:
   palserver:
-    build: .
+    build: ./server
     volumes:
-       - type: bind
-         source: ./data
-         target: /srv/palworld/Pal/Saved/
+      - ./data:/srv/palworld/Pal/Saved/
 
     restart: always
-    ports: 
-    - "8211:8211/udp"
-    - "8211:8211/tcp"
-    - "25575:25575/tcp"
+    ports:
+      - "8211:8211/udp"
+      - "8211:8211/tcp"
+      - "25575:25575/tcp"
+
+  # palbackup:
+  #   build: ./backup
+  #   volumes:
+  #     - ./data:/data
+  #     - ./backups:/backups
+
   paleditor:
-    image: python:latest 
+    image: python:latest
+    entrypoint: bash
     volumes:
-       - type: bind
-         source: ./data
-         target: /srv/palworld/Pal/Saved/
+      - type: bind
+        source: ./data
+        target: /srv/palworld/Pal/Saved/

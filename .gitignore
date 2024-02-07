@@ -6,3 +6,5 @@ data
 
 # keep PalworldSettings.ini
 !data/Config/LinuxServer/PalWorldSettings.ini
+
+backups
